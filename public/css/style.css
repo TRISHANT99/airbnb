@@ -1,0 +1,840 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*  --------- navigation styles ------------ */
+
+nav {
+    display: flex;
+    gap: 2em;
+    padding: 1em 5em;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 1px 0px 4px black;
+    width: 100%;
+}
+
+nav img {
+    height: 3em;
+}
+
+.alternates {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 3em;
+    gap: 1em;
+    border-style: none;
+    padding: 1em;
+    border-radius: 2em;
+    box-shadow: 1px 0px 4px black;
+}
+
+.alternates a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.alternates input {
+    border-style: none;
+    width: 6em;
+    font-size: 1em;
+    cursor: pointer;
+}
+.alternates input:focus{
+    outline: none;
+}
+
+.alternates i {
+    color: rgb(245, 37, 71);
+}
+
+.user-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.user-options a {
+    text-decoration: none;
+    color: black;
+}
+
+#userImage img{
+    border-radius: 100%;
+    width: 2em;
+    height: 2em;
+}
+
+#userNameDisplay{
+    text-transform: capitalize;
+}
+.dropdown-user {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8em;
+    border-style: none;
+    padding: 0.7em;
+    border-radius: 2em;
+    box-shadow: 1px 0px 4px black;
+    cursor: pointer;
+}
+
+.dropdown-options {
+    display: none;
+    position: absolute;
+    margin-top: 20em;
+    margin-right: 5em;
+    padding: 1em;
+    min-width: 160px;
+    height: 18em;
+    background-color: white;
+    border-style: none;
+    box-shadow: 1px 0px 4px black;
+    border-radius: 1em;
+    gap: 0.5em;
+    z-index: 1;
+}
+
+.dropdown-user:hover .dropdown-options {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: flex-start;
+}
+/* ------------------------------ */
+
+/* -------------- settings to display users booking details ------------- */
+.userBookingDetailSection,
+.userPublicationDetailSection{
+    display: none;
+    flex-direction: column;
+    justify-items: flex-start;
+    align-content:flex-start;
+    gap: 0.2em;
+    background-color: white;
+    opacity: 0.98;
+    width: 100%;
+    height:max-content;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 20;
+    padding: 1em;
+}
+.cancelBookDetailsBtn{
+    background-color: white;
+    border-style: none;
+    transition: all 0.5s;
+}
+.cancelBookDetailsBtn i{
+    font-size: 2em;
+    color: rgb(236, 48, 80);
+}
+.cancelBookDetailsBtn:hover{
+    opacity: 0.7;
+}
+.bookHead{
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+}
+.userBookingDetails,
+.userPublicationDetails{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    gap: 2em;
+    width: 100%;
+    height: 80vw;
+    padding: 1em;
+    z-index: 20;
+}
+.ratingCommentBtn,
+.deleteRoomBtn{
+    padding: 0.5em;
+    border-radius: 0.2em;
+    background-color: rgb(235, 65, 93);
+    box-shadow: 1px 0px 4px rgb(235, 51, 82);
+    transition: all 0.5s;
+    border-style: none;
+}
+.ratingCommentBtn:hover,
+.deleteRoomBtn:hover{
+    opacity: 0.7;
+}
+.rightBottom form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+    gap: 1em;
+}
+.rightBottom form input{
+    border-style: none;
+}
+.rightBottom form input:focus{
+    outline: none;
+}
+.rightBottom form button{
+    width: 10em;
+}
+/* ------------------ */
+
+/* blocks for booking details */
+.blockBooking{
+    display: flex;
+    gap: 0em;
+    width: 100%;
+    height:fit-content;
+    padding: 1em;
+    box-shadow: 1px 0px 4px black;
+    border-radius: 0.5em;
+    margin-top: 2em;
+    z-index: 20;
+    gap: 2em;
+}
+.blockBooking img{
+    height: 200px;
+    width: 300px;
+}
+/* cards to display content */
+.cards {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-evenly;
+    align-content:flex-start;
+    gap: 2em;
+    padding: 1em;
+    height: 70vw;
+    z-index: 0;
+}
+.blocks{
+    display: flex;
+    flex-direction: column;
+    gap: 0em;
+    width: 250px;
+    height: 450px;
+    padding: 1em;
+    box-shadow: 1px 0px 4px black;
+    border-radius: 0.5em;
+    margin-top: 2em;
+    cursor: pointer;
+    z-index: 0;
+}
+.blocks img{
+    height: 200px;
+}
+/* ------------------- */
+
+/* --------- expanded details of room --------*/
+.expand-blocks{
+    position: absolute;
+    top: 0;
+    display: none;
+    margin: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0.5em;
+    z-index: 20;
+    width: 100%;
+    height: max-content;
+    background-color: white;
+    opacity: 0.98;
+}
+.location-rating{
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    width: 100%;
+    gap: 2em;
+    padding: 1em 3em;
+}
+.cancelDiv{
+    padding: 0;
+}
+.cancelBtnRooms{
+    width: 2em;
+    background:none;
+    border-style: none;
+    transition: all 0.5s;
+}
+.cancelBtnRooms i{
+    font-size: 2em;
+    color: rgb(245, 88, 114);
+}
+.cancelBtnRooms:hover{
+    opacity: 0.7;
+}
+.imgShow{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 2em;
+    width: 100%;
+    padding: 1em 3em;
+}
+.imgLeft {
+    display: block;
+}
+.imgLeft img{
+    height: 21em;
+    width: 30em;
+    object-fit: cover;
+}
+.imgRight{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-gap: 1em;
+}
+.imgRight img{
+    height: 10em;
+    width: 15em;
+    object-fit: cover;
+}
+.content-manager{
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 14em;
+    padding: 1em 3em;
+}
+.content-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+    gap: 1em;
+}
+.content-right{
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+    gap: 1em;
+    width: 100%;
+    padding: 1em 3em;
+}
+
+.roomHead{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+}
+.describe{
+    display: block;
+}
+.roomAddons{
+    display: flex;
+    flex-direction: column;
+}
+.amenity{
+    display: grid;
+    grid-template-columns: auto auto;
+    text-transform: capitalize;
+}
+.amenity i{
+    color: rgb(240, 32, 66);
+}
+.price-booking{
+    display: flex;
+    flex-direction: column;
+    border: solid rgb(241, 239, 239);
+    border-radius: 0.4em;
+    justify-content: flex-end;
+    align-content: flex-end;
+    padding: 2em;
+    width: 20em;
+}
+.booking-query{
+    display: flex;
+    flex-direction: column;
+}
+.booking-query form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+    gap: 1em;
+}
+.booking-query form input{
+    padding: 0.5em;
+    border-radius: 0.2em;
+    border: solid thin rgb(231, 138, 154);
+    box-shadow: 1px 0px 4px rgb(235, 51, 82);
+}
+.booking-query button{
+    padding: 0.5em;
+    border-radius: 0.2em;
+    background-color: rgb(235, 65, 93);
+    box-shadow: 1px 0px 4px rgb(235, 51, 82);
+    transition: all 0.5s;
+    border-style: none;
+}
+.totPrice{
+    padding: 1em 0;
+}
+
+.booking-query button:hover{
+    opacity: 0.7;
+}
+
+/* for comments */
+.comments{
+    display: flex;
+    flex-direction: column;
+    gap: 0.1em;
+    justify-content: flex-start;
+    align-content: flex-start;
+    padding: 1em 3em;
+}
+/* --------------------- */
+
+/* --- footer ---- */
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-content: space-evenly;
+    gap: 10em;
+    box-shadow: 1px 0px 4px black;
+    padding: 1em;
+    width: 100%;
+    margin-top: 5em;
+    position: fixed;
+    bottom: 0;
+    background-color: white;
+}
+
+footer a {
+    text-decoration: none;
+    color: black;
+}
+
+.left-foot {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 0.5em;
+}
+
+/* ------------- all forms settings ------------- */
+
+.register {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    padding: 1em;
+    background-color: white;
+    opacity: 0.95;
+    width: 100%;
+    height: 80vw;
+    margin: auto;
+    z-index: 30;
+}
+.cancelBtn i{
+    font-size: 1em;
+}
+.register .cancelBtn{
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    width: 2em;
+    height: 2em;
+    padding: 0;
+}
+.register hr{
+    border: solid thin rgb(238, 39, 72);
+    width: 100%;
+}
+
+.register input,
+.register select,
+.register textarea{
+    padding: 1em;
+    border-style: none;
+    border-radius: 0.2em;
+    box-shadow: 1px 0px 4px rgb(235, 51, 82);
+}
+.register #fname,
+.register #lname,
+.register #pFname,
+.register #pLname,
+.register #country{
+    text-transform: capitalize;
+}
+
+
+.register button{
+    padding: 1em;
+    border-style: none;
+    background-color: rgb(235, 78, 104);
+    border-radius: 0.2em;
+    box-shadow: 1px 0px 4px rgb(235, 51, 82);
+    transition: all 0.5s;
+    color: white;
+}
+.register button:hover{
+    opacity: 0.8;
+}
+
+.form-instruct{
+    color: rgb(233, 105, 126);
+    font-style: italic;
+}
+
+.signup-form,
+.login-form,
+.product-form,
+.contact-form,
+.booking-form,
+.rating-form{
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: 1em;
+    width: 50%;
+    padding: 1em;
+    position: absolute;
+    top: 2em;
+    box-shadow: 1px 0px 4px rgb(235, 51, 82);
+    z-index: 35;
+}
+.signup-form h3,
+.login-form h3,
+.product-form h3,
+.contact-form h3,
+.booking-form h3,
+.rating-form h3{
+    text-transform: uppercase;
+}
+
+.signup-form form,
+.login-form form,
+.product-form form,
+.contact-form form,
+.booking-form form,
+.rating-form form
+{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+}
+.product-form{
+    width: 90%;
+}
+
+.contact-form #userName{
+    text-transform: capitalize;
+}
+
+.form-section1,
+.form-section2
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.5em;
+}
+.form-section3{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+}
+
+.form-section3 select,
+.form-section3 input{
+    width: 100%;
+}
+
+.form-section1 input,
+.form-section2 input{
+    width: 20%;
+}
+
+/* ----------- message box display ----------- */
+#success-message, 
+#error-message{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 50%;
+    margin: auto;
+    padding: 1em;
+    border-style: none;
+    border-radius: 0.5em;
+    margin-top: 5em;
+    box-shadow: 1px 0px 4px rgb(235, 51, 82);
+}
+
+#help-message{
+    position: absolute;
+    top: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: 90vw;
+    margin: auto;
+    padding: 1em;
+    background-color: white;
+    opacity: 0.95;
+    border-style: none;
+    z-index: 20;
+}
+#help-message .closeHelpBtn{
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    background-color: white;
+    transition: all 0.5s;
+    border-style: none;
+}
+.closeHelpBtn i{
+    font-size: 2em;
+    color: rgb(212, 56, 82);
+}
+
+.closeHelpBtn:hover{
+    opacity: 0.7;
+}
+
+
+#success-message button,
+#error-message button{
+    padding: 1em;
+    border-style: none;
+    background-color: rgb(235, 78, 104);
+    border-radius: 0.2em;
+    box-shadow: 1px 0px 4px rgb(235, 51, 82);
+    transition: all 0.5s;
+    color: white;
+}
+#success-message button:hover,
+#error-message button:hover
+{
+    opacity: 0.7;
+}
+
+/* logout button */
+#logout-link, 
+#guestBookng-link{
+    background-color: white;
+    border-style: none;
+    cursor: pointer;
+    margin-top: 0;
+}
+
+/* --------- responsive settings for screen and forms ----------- */
+@media screen and (max-width:900px) {
+    nav {
+        display: flex;
+        flex-direction: column;
+    }
+    footer{
+        display: flex;
+        flex-direction: column;
+        gap: 0.1em;
+    }
+    .left-foot{
+        display: flex;
+        flex-direction: column;
+    }
+    .dummyLink{
+        display: flex;
+        gap: 1em;
+    }
+    .expand-blocks{
+        height: max-content;
+    }
+    .imgShow{
+        display: flex;
+        flex-direction: column;
+    }
+    .imgLeft {
+        display: block;
+    }
+    .imgLeft img{
+        height: 50%;
+        width: 100%;
+        object-fit: cover;
+    }
+    .imgRight{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+    .imgRight img{
+        height: 50%;
+        width: 100%;
+        object-fit: cover;
+    }
+    .content-manager{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        padding: 1em 3em;
+    }
+    .content-left{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-content: flex-start;
+        gap: 1em;
+    }
+    .content-right{
+        display: flex;
+        justify-content: flex-start;
+        align-content: flex-start;
+        gap: 1em;
+        width: 100%;
+        padding: 0em;
+    }
+    .roomHead{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+    }
+    .describe{
+        width: fit-content;
+    }
+    .roomAddons{
+        display: flex;
+        flex-direction: column;
+    }
+    .amenity{
+        display: flex;
+        flex-direction: column;
+        gap:1em;
+    }
+    .register {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        padding: 1em;
+        background-color: white;
+        opacity: 0.95;
+        height: fit-content;
+        margin: auto;
+        z-index: 30;
+    }
+        .signup-form,
+        .login-form,
+        .product-form,
+        .contact-form,
+        .booking-form,
+        .rating-form{
+        display: none;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        border-radius: 1em;
+        width: 90%;
+        padding: 1em;
+        position: absolute;
+        top: 4em;
+        box-shadow: 1px 0px 4px rgb(235, 51, 82);
+        background-color: white;
+        z-index: 35;    
+    }
+    .userBookingDetailSection,
+    .userPublicationDetailSection{
+        display: none;
+        flex-direction: column;
+        justify-items: flex-start;
+        align-content:flex-start;
+        gap: 0.2em;
+        background-color: white;
+        opacity: 0.98;
+        height: max-content;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: 20;
+        padding: 1em;
+    }
+
+    .userBookingDetails,
+    .userPublicationDetails{
+        height: max-content;
+        padding: 1em;
+        z-index: 20;
+    }
+    .blockBooking{
+        display: flex;
+        flex-direction: column;
+        gap: 0em;
+        width: 100%;
+        height:fit-content;
+        padding: 1em;
+        box-shadow: 1px 0px 4px black;
+        border-radius: 0.5em;
+        margin-top: 2em;
+        z-index: 20;
+        gap: 2em;
+    }
+    .blockBooking img{
+        height: 200px;
+        width: 300px;
+    }
+    .form-section1,
+    .form-section2
+    {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1.5em;
+    }
+    .form-section1 input,
+    .form-section2 input{
+        width: 100%;
+    }
+    
+    #help-message{
+        position: absolute;
+        top: 0;
+        display: none;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+        height: max-content;
+        margin: auto;
+        padding: 1em;
+        background-color: white;
+        opacity: 0.95;
+        border-style: none;
+        z-index: 20;
+    }
+    #help-message .topDiv{
+        margin-top: 4em;
+    }
+}
