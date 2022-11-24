@@ -2,10 +2,10 @@
 
 //libraries
 const express = require("express");
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const hbs = require("hbs");
+// const hbs = require("hbs");
 const path = require("path");
 const cookieParse = require("cookie-parser");
 
